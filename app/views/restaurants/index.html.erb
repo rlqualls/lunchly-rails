@@ -1,5 +1,8 @@
 <h1>Restaurants</h1>
 
 <% @restaurants.each do |restaurant| %>
-  <p><a href="<%= restaurant_path(restaurant) %>"><%= restaurant.title %></a><span>Average rating: <%= restaurant.average_rating %></span></p>
+  <p><a href="<%= restaurant_path(restaurant) %>"><%= restaurant.title %></a>
+  <span>Average rating: <%= restaurant.average_rating %></span>
+  <%= link_to "delete", restaurant, method: :delete %>
+  </p>
 <% end %>
