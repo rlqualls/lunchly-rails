@@ -11,7 +11,7 @@ class Restaurant < ActiveRecord::Base
 
   def average_rating
     if ratings.size > 0
-      ratings.average(:score)
+      ratings.average(:score).round(1)
     else
       'no ratings'
     end
