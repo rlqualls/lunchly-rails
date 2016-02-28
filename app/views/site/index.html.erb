@@ -1,10 +1,8 @@
-<section id="main">
+<section id="main" class="nopacity">
   <header>
-    <span class="avatar"><img src="/images/avatar.jpg" alt="" /></span>
-    <h1><%= @restaurant.title %></h1>
-    <p><%= @restaurant.description %></p>
-    <p><%= @restaurant.address %></p>
-    <p>Rating: <%= @restaurant.average_rating %></p>
+    <span class="avatar"><img src="images/avatar.jpg" alt="" /></span>
+    <p>Today's lunch is</p>
+    <h1><%= link_to @restaurant.title, @restaurant %></h1>
   </header>
   <!-- <hr /> -->
   <!-- <form method="post" action="#"> -->
@@ -28,4 +26,11 @@
       <li><a href="#" class="fa-facebook">Facebook</a></li>
     </ul>
   </footer>
+
 </section>
+
+<script type="text/javascript">
+  $(document).on('ready page:load', function() {
+    $(".nopacity").animate({opacity: 0.95}, 150);
+  });
+</script>

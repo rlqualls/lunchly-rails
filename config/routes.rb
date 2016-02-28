@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'site#index'
+
   resources :restaurants
   resource :ratings, only: :update
 
