@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :restaurant do
-    title "Restaurant Title"
-    description "Restaurant Description"
-    address "1001 Streeties Lane, City, ST"
+    title { "#{FFaker::Name.name}'s #{FFaker::Food.herb_or_spice}" }
+    description { "Restaurant Description" }
+    address { "#{FFaker::Address.street_address}, City, ST" }
   end
 end

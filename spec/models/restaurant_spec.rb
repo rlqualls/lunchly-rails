@@ -3,6 +3,12 @@ require 'rails_helper'
 RSpec.describe Restaurant, :type => :model do
   before :each do
     @restaurant = build(:restaurant)
+    @restaurant.save
+  end
+
+  after :each do
+    # DatabaseCleaner should be doing this...
+    Restaurant.destroy_all
   end
 
   it "has a valid factory" do
@@ -37,5 +43,20 @@ RSpec.describe Restaurant, :type => :model do
     newy.last_visited = 11.days.ago
     newy.save
     expect(Restaurant.last_visited).to eq oldy
+  end
+
+  it "keeps track of average rating" do
+    values = (1..5).to_a.shuffle.take(4)
+    average = values.inject(:+).to_f / values.size
+
+    values.each do |value|
+      @restaurant.ratings.create({ score: value })
+    end
+
+    expect(@restaurant.average_rating).to eq average
+  end
+
+  it "tests consistently" do
+    expect(Restaurant.all.size).to eq 1
   end
 end
