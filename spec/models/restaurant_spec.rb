@@ -47,7 +47,7 @@ RSpec.describe Restaurant, :type => :model do
 
   it "keeps track of average rating" do
     values = (1..5).to_a.shuffle.take(4)
-    average = values.inject(:+).to_f / values.size
+    average = (values.inject(:+).to_f / values.size).round(1)
 
     values.each do |value|
       @restaurant.ratings.create({ score: value })
