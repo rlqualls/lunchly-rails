@@ -2,27 +2,18 @@
   <header>
     <span class="avatar"><%= image_tag('thai-food.jpg') %></span>
     <h1><%= @restaurant.title %></h1>
-    <p><%= @restaurant.description %></p>
+
+    <% unless @restaurant.description.blank? %>
+      <p><%= @restaurant.description %></p>
+    <% end %>
+
     <p><%= @restaurant.address %></p>
-    <% if not @restaurant.phone_number.blank? %>
+
+    <% unless @restaurant.phone_number.blank? %>
       <p><%= @restaurant.phone_number %></p>
     <% end %>
   </header>
-  <!-- <hr /> -->
-  <!-- <form method="post" action="#"> -->
-  <!--   <div class="field"> -->
-  <!--     <input type="checkbox" id="human" name="human" /><label for="human">I'm attending</label> -->
-  <!--   </div> -->
-    <!-- <div class="field"> -->
-    <!--   <label>Are you attending?</label> -->
-    <!--   <input type="radio" id="robot_yes" name="robot" /><label for="robot_yes">Yes</label> -->
-    <!--   <input type="radio" id="robot_no" name="robot" /><label for="robot_no">No</label> -->
-    <!-- </div> -->
-    <!-- <ul class="actions"> -->
-    <!--   <li><a href="#" class="button">Submit</a></li> -->
-    <!-- </ul> -->
-  <!-- </form> -->
-  <!-- <hr /> -->
+
   <footer>
     <div id="rating" class="center"></div>
     <ul class="icons">
