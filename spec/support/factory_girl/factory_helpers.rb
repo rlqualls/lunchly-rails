@@ -1,8 +1,10 @@
 module FactoryHelpers
   def random_time_in_past
-    days = rand(15) + 1
-    minutes = rand(360) + 1
-    Time.at((days.days.ago.to_f - minutes.minutes.ago.to_f) + minutes.minutes.ago.to_f)
+    days_rand = rand(29) + 1
+    minutes_rand = rand(360) + 1
+    days_ago = days_rand.days.ago.to_f
+    minutes_ago = minutes_rand.minutes.ago.to_f
+    Time.at((days_ago - minutes_ago) + minutes_ago)
   end
 end
 

@@ -1,25 +1,49 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-#
+NUM_USERS = 10
+NUM_RESTAURANTS = 20
+
 Restaurant.destroy_all
 User.destroy_all
 
-10.times do
+# Google Places provides information for real places
+# places_key = ENV["google_places_api_key"]
+# places_client = GooglePlaces::Client.new ENV["google_places_api_key"]
+# lat = 33.7878952
+# lng = -84.3853487
+#
+# spots = places_client.spots(lat, lng, types: ["restaurant", "food"])
+#
+# places = spots.map do |spot|
+#   details_url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=#{spot.place_id}&key=#{places_key}"
+#   details_body = HTTParty.get(details_url).body
+#   details_json = ActiveSupport::JSON.decode details_body
+#   byebug
+#   if details_json
+#     details = details_json["result"]
+#     if details
+#       {
+#         title: spot.name,
+#         address: details["formatted_address"],
+#         phone_number: details["formatted_phone_number"]
+#       }
+#     else
+#       {}
+#     end
+#   else
+#     {}
+#   end
+# end
+
+NUM_USERS.times do
   name = FFaker::Name.name.downcase.gsub(" ", "")
   email = "#{name}@example.com"
   u = FactoryGirl.create(:user, email: email)
   u.save
 end
 
-possible_num_ratings = (0..10).to_a
-10.times do
-  num_ratings = possible_num_ratings.sample
+NUM_RESTAURANTS.times do
+  num_ratings = rand(20) + 10
   r = FactoryGirl.create(:restaurant)
+
   num_ratings.times do
     random_rating = (1..5).to_a.shuffle.first
     user = User.order("RANDOM()").first
