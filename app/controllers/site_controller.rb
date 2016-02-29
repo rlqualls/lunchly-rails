@@ -1,5 +1,5 @@
 class SiteController < ApplicationController
   def index
-    @restaurant = Restaurant.order("RANDOM()").first
+    @restaurant = Restaurant.whats_for_lunch
   end
 end

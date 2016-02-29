@@ -1,8 +1,9 @@
 <section id="main" class="nopacity">
   <header>
     <span class="avatar"><%= image_tag('thai-food.jpg')%></span>
-    <p>Today's lunch is</p>
+    <h3>Today's lunch is</h3>
     <h1><%= link_to @restaurant.title, @restaurant %></h1>
+    <p>The last time we visited was <%= time_ago_in_words(@restaurant.last_visited) %> ago</p>
   </header>
   <!-- <hr /> -->
   <!-- <form method="post" action="#"> -->
