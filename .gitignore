@@ -18,3 +18,12 @@
 
 # Ignore database config
 /config/database.yml
+
+# Ignore figaro ENV config
+/config/application.yml
+
+# Ignore ByeBug generated files
+/.byebug_history
+
+# Ignore generated assets
+/public/assets/**
