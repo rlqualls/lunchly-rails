@@ -1,9 +1,12 @@
-<section id="main">
+<section id="main" class="nopacity">
   <header>
     <span class="avatar"><%= image_tag('thai-food.jpg') %></span>
     <h1><%= @restaurant.title %></h1>
     <p><%= @restaurant.description %></p>
     <p><%= @restaurant.address %></p>
+    <% if not @restaurant.phone_number.blank? %>
+      <p><%= @restaurant.phone_number %></p>
+    <% end %>
   </header>
   <!-- <hr /> -->
   <!-- <form method="post" action="#"> -->
@@ -25,13 +28,14 @@
     <ul class="icons">
       <li><a href="/" class="fa-home">Home</a></li>
       <li><a href="/restaurants" class="fa-list">Restaurants</a></li>
+      <li><%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "fa-edit" %></li>
     </ul>
   </footer>
 </section>
 
 <script type="text/javascript">
   $(document).on('ready page:load', function() {
-    $(".nopacity").animate({opacity: 0.95}, 150);
+    $(".nopacity").animate({opacity: 0.95}, 100);
 
     $("#rating").rateYo({
       starWidth: "50px",

@@ -1,0 +1,54 @@
+<section id="main">
+  <header>
+    <span class="avatar"><%= image_tag('thai-food.jpg') %></span>
+  </header>
+
+  <h2>Edit Restaurant</h2>
+  <%= form_for @restaurant do |f| %>
+    <%= f.label :title, class: "field" %>
+    <%= f.text_field :title, class: "field" %>
+    <%= f.label :description, class: "field" %>
+    <%= f.text_area :description, class: "field" %>
+    <%= f.label :phone_numner, class: "field" %>
+    <%= f.text_field :phone_number, class: "field" %>
+    <%= f.submit 'Update', class: "field" %>
+  <% end %>
+  <!-- <form method="post" action="#"> -->
+  <!--   <div class="field"> -->
+  <!--     <input type="text" name="name" id="name" placeholder="Name" /> -->
+  <!--   </div> -->
+  <!--   <div class="field"> -->
+  <!--     <input type="text" name="description" id="description" placeholder="Description" /> -->
+  <!--   </div> -->
+    <!-- <div class="field"> -->
+    <!--   <div class="select&#45;wrapper"> -->
+    <!--     <select name="department" id="department"> -->
+    <!--       <option value="">Department</option> -->
+    <!--       <option value="sales">Sales</option> -->
+    <!--       <option value="tech">Tech Support</option> -->
+    <!--       <option value="null">/dev/null</option> -->
+    <!--     </select> -->
+    <!--   </div> -->
+    <!-- </div> -->
+  <!--   <div class="field"> -->
+  <!--     <textarea name="message" id="message" placeholder="Message" rows="4"></textarea> -->
+  <!--   </div> -->
+  <!--   <div class="field"> -->
+  <!--     <input type="checkbox" id="human" name="human" /><label for="human">I'm a human</label> -->
+  <!--   </div> -->
+  <!--   <div class="field"> -->
+  <!--     <label>But are you a robot?</label> -->
+  <!--     <input type="radio" id="robot_yes" name="robot" /><label for="robot_yes">Yes</label> -->
+  <!--     <input type="radio" id="robot_no" name="robot" /><label for="robot_no">No</label> -->
+  <!--   </div> -->
+  <!--   <ul class="actions"> -->
+  <!--     <li><a href="#" class="button">Get Started</a></li> -->
+  <!--   </ul> -->
+  <!-- </form> -->
+  <footer>
+    <ul class="icons">
+      <li><a href="/" class="fa-home">Home</a></li>
+      <li><%= link_to 'Destroy',  @restaurant,  method: :delete, data: { confirm: 'Are you sure?' }, class: "fa-trash"  %></li>
+    </ul>
+  </footer>
+</section>
