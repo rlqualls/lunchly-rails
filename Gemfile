@@ -44,6 +44,8 @@ gem 'figaro'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'ffaker'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -51,7 +53,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'ffaker'
 end
 
 group :development do
