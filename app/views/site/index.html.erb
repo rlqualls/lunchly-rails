@@ -1,6 +1,6 @@
 <section id="main" class="nopacity">
   <header>
-    <span class="avatar"><img src="images/avatar.jpg" alt="" /></span>
+    <span class="avatar"><%= image_tag('thai-food')%></span>
     <p>Today's lunch is</p>
     <h1><%= link_to @restaurant.title, @restaurant %></h1>
   </header>
@@ -20,11 +20,7 @@
   <!-- </form> -->
   <!-- <hr /> -->
   <footer>
-    <ul class="icons">
-      <li><a href="#" class="fa-twitter">Twitter</a></li>
-      <li><a href="#" class="fa-instagram">Instagram</a></li>
-      <li><a href="#" class="fa-facebook">Facebook</a></li>
-    </ul>
+    <div id="rating" class="center"></div> 
   </footer>
 
 </section>
@@ -32,5 +28,12 @@
 <script type="text/javascript">
   $(document).on('ready page:load', function() {
     $(".nopacity").animate({opacity: 0.95}, 150);
+
+    $("#rating").rateYo({
+      starWidth: "50px",
+      rating: <%= @restaurant.average_rating %>,
+      ratedFill: "#F0CE4E",
+      readOnly: true
+    });
   });
 </script>
