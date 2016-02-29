@@ -20,11 +20,6 @@ RSpec.describe Restaurant, :type => :model do
     expect(@restaurant).to be_invalid
   end
 
-  it "has a description" do
-    @restaurant.description = ""
-    expect(@restaurant).to be_invalid
-  end
-
   it "has an address" do
     @restaurant.address = ""
     expect(@restaurant).to be_invalid
@@ -54,6 +49,13 @@ RSpec.describe Restaurant, :type => :model do
     end
 
     expect(@restaurant.average_rating).to eq average
+  end
+
+  it "can be visited" do
+    r1 = build(:restaurant)
+    last_visited = r1.last_visited
+    r1.visit!
+    expect(r1.last_visited).not_to eq last_visited
   end
 
   it "tests consistently" do
