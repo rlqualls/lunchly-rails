@@ -5,23 +5,15 @@
     <h1><%= link_to @restaurant.title, @restaurant %></h1>
     <p>The last time we visited was <%= time_ago_in_words(@restaurant.last_visited) %> ago</p>
   </header>
-  <!-- <hr /> -->
-  <!-- <form method="post" action="#"> -->
-  <!--   <div class="field"> -->
-  <!--     <input type="checkbox" id="human" name="human" /><label for="human">I'm attending</label> -->
-  <!--   </div> -->
-    <!-- <div class="field"> -->
-    <!--   <label>Are you attending?</label> -->
-    <!--   <input type="radio" id="robot_yes" name="robot" /><label for="robot_yes">Yes</label> -->
-    <!--   <input type="radio" id="robot_no" name="robot" /><label for="robot_no">No</label> -->
-    <!-- </div> -->
-    <!-- <ul class="actions"> -->
-    <!--   <li><a href="#" class="button">Submit</a></li> -->
-    <!-- </ul> -->
-  <!-- </form> -->
-  <!-- <hr /> -->
+
   <footer>
     <div id="rating" class="center"></div> 
+
+    <% if user_signed_in? %>
+      <ul class="icons">
+        <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "fa-sign-out" %></li>
+      </ul>
+    <% end %>
   </footer>
 
 </section>
